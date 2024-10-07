@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation Page</title>
+    <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+
+#searchBar {
+  padding: 10px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 20%;
+  background-color: #1f1f1f;
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+}
+
+.sidebar nav ul {
+  list-style-type: none;
+}
+
+.sidebar nav ul li {
+  margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.sidebar nav ul li a:hover {
+  color: #00bcd4;
+}
+
+main {
+  width: 80%;
+  margin-left: 20%;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+pre {
+  background-color: #2e2e2e;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+code {
+  color: red;
+}
+
+    </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+    <input type="text" id="searchBar" placeholder="Search topics..." oninput="searchTopics()">
+      <nav>
+        <ul id="topicList">
+          <li><a href="#installation" onclick="scrollToSection('installation')">Installation</a></li>
+          <li><a href="#topic2" onclick="scrollToSection('topic2')">Topic 2</a></li>
+          <li><a href="#topic3" onclick="scrollToSection('topic3')">Topic 3</a></li>
+          <li><a href="#topic4" onclick="scrollToSection('topic4')">Topic 4</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="installation">
+        <h2>Installation</h2>
+        <H3>Step 1: Install Python</H3>
+        <p>Flask requires Python to be installed on your system.</p>
+        <pre><code>// To install for Linux
+   sudo apt install 
+            console.log(message);
+        </code></pre>
+          <br>
+          <h3>Step 2: Set Up a Virtual Environment</h3>
+          Using a virtual environment helps manage dependencies specific to your Flask project.
+          Install the venv module (if not already installed):
+        <pre><code>// Linux/Mac:
+sudo apt-get install python3-venv
+//Windows: The venv module is bundled with Python installations.</code></pre>
+          <br>
+        <h3>Step 3: Create a Virtual Environment: In your project directory, create a virtual environment by running:</h3>
+        <pre><code>python3 -m venv venv</code></pre>
+          <br>
+         <h2>Step 3: Activate the Virtual Environment</h2> 
+    On Linux/macOS:
+        <pre><code>source venv/bin/activate</code></pre>
+    On Windows:
+        <pre><code>.\venv\Scripts\activate</code></pre>
+
+    <p>Once activated, your terminal prompt will change, indicating the virtual environment is active.</p>
+      </section>
+      
+      <section id="topic2">
+        <h2>Topic </h2>
+        <p>This is the content for topic 2.</p>
+        <pre><code>function add(a, b) {
+  return a + b;
+}
+        </code></pre>
+      </section>
+      
+      <section id="topic3">
+        <h2>Topic 3</h2>
+        <p>This is the content for topic 3.</p>
+        <pre><code>let array = [1, 2, 3, 4];
+array.forEach(item => console.log(item));
+        </code></pre>
+      </section>
+      
+      <section id="topic4">
+        <h2>Topic 4</h2>
+        <p>This is the content for topic 4.</p>
+        <pre><code>const greeting = (name) => `Hello, ${name}`;
+console.log(greeting('Osman'));
+        </code></pre>
+      </section>
+    </main>
+  </div>
+
+    <script>
+      // Scroll to section without reloading the page
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  section.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Search topics and filter in the sidebar
+function searchTopics() {
+  const query = document.getElementById('searchBar').value.toLowerCase();
+  const topics = document.querySelectorAll('#topicList li a');
+
+  topics.forEach(topic => {
+    if (topic.textContent.toLowerCase().includes(query)) {
+      topic.parentElement.style.display = '';
+    } else {
+      topic.parentElement.style.display = 'none';
+    }
+  });
+}
+
+    </script>
+</body>
+</html>
+

@@ -8,3 +8,6 @@ def hello_world():
 @app.route("/")
 def index():
     return render_template('index.html')
+@app.route("/doc")
+def doc():
+    return render_template('doc.html')
